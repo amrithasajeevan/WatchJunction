@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Display</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h2, h3 {
+            font-style: italic;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        p {
+            color: #555;
+        }
+        table {
+            width: 100%;
+        }
+        th, td {
+            text-align: center;
+            vertical-align: middle;
+            padding: 10px;
+        }
+        th {
+            background-color: #007bff;
+            color: #fff;
+        }
+        .btn-success {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            text-decoration: none;
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        .btn-success:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Order Preview:</h2>
+
+    <h3>Delivery Address:</h3>
+    <p>{{ addrr }}</p>
+
+    <h2>Product Details:</h2>
+    <table class="table table-hover">
+        <thead class="table-primary">
+        <tr>
+            <th>Image</th>
+            <th>Brand</th>
+            <th>Name</th>
+            <th>Quantity</th>
+            <th>Category</th>
+            <th>Price</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for product in data %}
+            {% for details in product.product_details %}
+                <tr>
+                    <td><img src="/static/{{ details.0 }}" width="100" alt="Product Image"></td>
+                    <td>{{ details.1 }}</td>
+                    <td>{{ details.2 }}</td>
+                    <td>{{ details.3 }}</td>
+                    <td>{{ details.5 }}</td>
+                    <td>{{ details.4 }}</td>
+                </tr>
+            {% endfor %}
+        {% endfor %}
+        <tr>
+            <th colspan="5" style="text-align: right;">Total</th>
+            <td>{{ total }}</td>
+        </tr>
+        </tbody>
+    </table>
+    <a href="http://127.0.0.1:8000/ecommerceapp/proceedtopay/" class="btn btn-success">Order Confirm</a>
+</div>
+</body>
+</html>

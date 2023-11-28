@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Select Address</title>
+</head>
+<body>
+    <h1>Select an Address</h1>
+    <form method="post">
+        {% csrf_token %}
+        {% for address in addresses %}
+            {% if address.userid == userid %}
+            <label>
+                <input type="radio" name="selected_address" value="{{ address.daddress }}, {{ address.city }}, {{ address.state }}, {{ address.pincode }},
+                    <br>
+                    {{ address.houseno }}, {{ address.landmark }}, {{ address.phn }}, {{ address.alt_phn }}">
+                {{ address.daddress }}, {{ address.city }}, {{ address.state }}, {{ address.pincode }},
+                    <br>
+                    {{ address.houseno }}, {{ address.landmark }}, {{ address.phn }}, {{ address.alt_phn }}
+            </label><br>
+            {% endif %}
+        {% endfor %}
+        <input type="submit" value="Select Address">
+    </form>
+
+    {% if selected_address %}
+    <h2>Selected Address</h2>
+    <p>{{ selected_address.daddress }}, {{ selected_address.city }}, {{ selected_address.state }},{{selected_address.pincode}}
+        <br>{{selected_address.houseno}},{{selected_address.landmark}}<br>
+        {{selected_address.phn}},{{selected_address.alt_phn}}</p>
+    {% endif %}
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+ <style>
+  .container{
+  height:470px;
+  width:550px;
+  background-color:white;
+  margin-top:50px;
+  border-radius:20px;
+  }
+  body{
+  background-color:purple;
+  color:
+#0e3573
+;}
+  table{
+  height:400px;
+  width:500px;
+  }
+.btn{
+background-color:purple;
+margin-left:100px;
+color:white;
+  }
+h1{
+  text-align:center;
+  font-style:italic;
+
+  }
+
+ </style>
+</head>
+<body style="background-image: linear-gradient(62deg, #5f1a86 0%, #6984dc 100%);
+        background-repeat:none;
+        background-size:100% 850px;">
+<div class="container">
+<table>
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+    <h1>Register</h1>
+    <tr>
+        <th><label class="form-label">Name</label></th>
+        <td><input type="text" name="name" class="form-control"></td>
+     </tr>
+     <tr>
+           <th><label class="form-label">email</label></th>
+           <td><input type="email" name="email" class="form-control"></td>
+     </tr>
+    <tr>
+             <th><label class="form-label">Phone number</label></th>
+             <td><input type="number" name="phn" class="form-control"></td>
+     </tr>
+    <tr>
+          <th><label class="form-label">image</label></th>
+          <td><input type="file" name="img" class="form-control"></td>
+     </tr>
+    <tr>
+
+           <th><label class="form-label">Company name</label></th>
+           <td><input type="text" name="cname" class="form-control"></td>
+     </tr>
+    <tr>
+     <th><label class="form-label">comapany details</label></th>
+     <td><textarea name="cdetails" class="form-control"></textarea></td>
+     </tr>
+    <tr>
+        <th><label class="form-label">Password</label></th>
+        <td><input type="password" name="passw" class="form-control"></td>
+    </tr>
+    <tr>
+       <th><label class="form-label">Confirm Password</label></th>
+       <td><input type="password" name="cpass" class="form-control"></td>
+     </tr>
+
+    <tr>
+     <th></th>
+     <td><input type="submit" value="submit" class="btn"></td>
+    </tr>
+
+</form>
+</table>
+ </div>
+
+</body>
+</html>

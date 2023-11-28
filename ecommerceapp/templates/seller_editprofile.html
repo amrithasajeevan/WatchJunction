@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"],
+        input[type="email"],
+        input[type="number"],
+        textarea {
+            width: calc(100% - 10px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        input[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+<label>Name</label>
+<input type="text" name="name" value="{{data.name}}"><br><br>
+<label>email</label>
+<input type="email" name="email" value="{{data.email}}"><br><br>
+<label>phone</label>
+<input type="number" name="phone" value="{{data.phone}}"><br><br>
+<label>image</label>
+<img src="/static/{{img}}" height="100px" width="100px"><input type="file" name="image" value="{{data.pic}}"><br><br>
+<label>company name</label>
+<input type="text" name="cname" value="{{data.cname}}"><br><br>
+<label>company details</label>
+<textarea name="cdetail" >{{data.cdetail}}</textarea><br><br>
+<input type="submit" value="submit">
+</form>
+
+</body>
+</html>

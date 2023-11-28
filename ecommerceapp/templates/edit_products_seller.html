@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/71f5629eae.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<form method="post" enctype="multipart/form-data">{% csrf_token %}
+        <label> Brand name</label>
+        <input type="text" name="bname" value="{{data.brand}}"><br><br>
+        <label>Model Name</label>
+        <input type="text" name="mname" value="{{data.name}}"><br><br>
+        <label>Picture</label>
+        <img src="/static/{{img}}" height="100px" width="100px"><input type="file" value="{{data.photo}}" name="pic"><br><br>
+        <label>Price</label>
+        <input type="number" value="{{data.price}}" name="price"><br><br>
+        <label>color</label>
+        <input type="text" value="{{data.colors}}" name="colors"><br><br>
+        <label>quantity</label>
+        <input type="number" value="{{data.quantity}}" name="qty"><br><br>
+        <label>category</label>
+        <input type="text" value="{{data.category}}" name="cat"><br><br>
+        <label>description</label>
+        <textarea name="des">{{data.description}}</textarea><br><br>
+        <input type="submit" value="submit" class="btn btn-warning">
+
+</form>
+
+</body>
+</html>
